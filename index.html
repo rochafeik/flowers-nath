@@ -715,7 +715,63 @@ Contáctame:
 
 -->
 
+<audio id="audio-file" src="musica.mp3" loop></audio>
 
+<div class="music-player">
+    <button class="play-pause-btn" id="play-btn">▶</button>
+    <div class="progress-container">
+        <div class="song-info">Flores Amarillas 🌻</div>
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="time-display">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const audio = document.getElementById('audio-file');
+    const playBtn = document.getElementById('play-btn');
+    const progressBar = document.getElementById('progress-bar');
+    const progressFill = document.getElementById('progress-fill');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
+
+    playBtn.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playBtn.textContent = '❚❚';
+        } else {
+            audio.pause();
+            playBtn.textContent = '▶';
+        }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+        if (audio.duration) {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progressFill.style.width = `${percent}%`;
+
+            const currentMinutes = Math.floor(audio.currentTime / 60);
+            const currentSeconds = Math.floor(audio.currentTime % 60);
+            currentTimeEl.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60);
+            durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+        }
+    });
+
+    progressBar.addEventListener('click', (e) => {
+        const width = progressBar.clientWidth;
+        const clickX = e.offsetX;
+        if (audio.duration) {
+            audio.currentTime = (clickX / width) * audio.duration;
+        }
+    });
+</script>
     
 
 </body></html>
