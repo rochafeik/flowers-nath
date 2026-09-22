@@ -796,47 +796,85 @@ Contáctame:
     </div>
 </div>
 
+<!-- REPRODUCTOR EN LA PARTE INFERIOR Y SCRIPT CORREGIDO -->
+<audio id="audio-file" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    <source src="musica.ogg" type="audio/ogg">
+</audio>
+
+<div class="music-player">
+    <button class="play-pause-btn" id="play-btn">▶</button>
+    <div class="progress-container">
+        <div class="song-info">Flores Amarillas 🌻</div>
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="time-display">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Posiciona el reproductor abajo y encima de las flores */
+.music-player {
+    position: fixed !important;
+    bottom: 25px !important;
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 99999 !important;
+}
+</style>
+
 <script>
-    const audio = document.getElementById('audio-file');
-    const playBtn = document.getElementById('play-btn');
-    const progressBar = document.getElementById('progress-bar');
-    const progressFill = document.getElementById('progress-fill');
-    const currentTimeEl = document.getElementById('current-time');
-    const durationEl = document.getElementById('duration');
+    document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById('audio-file');
+        const playBtn = document.getElementById('play-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressFill = document.getElementById('progress-fill');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
 
-    playBtn.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            playBtn.textContent = '❚❚';
-        } else {
-            audio.pause();
-            playBtn.textContent = '▶';
-        }
-    });
+        if (!audio || !playBtn) return;
 
-    audio.addEventListener('timeupdate', () => {
-        if (audio.duration) {
-            const percent = (audio.currentTime / audio.duration) * 100;
-            progressFill.style.width = `${percent}%`;
+        playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play().then(() => {
+                    playBtn.textContent = '❚❚';
+                }).catch(error => {
+                    console.error("Error al reproducir audio:", error);
+                });
+            } else {
+                audio.pause();
+                playBtn.textContent = '▶';
+            }
+        });
 
-            const currentMinutes = Math.floor(audio.currentTime / 60);
-            const currentSeconds = Math.floor(audio.currentTime % 60);
-            currentTimeEl.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressFill.style.width = `${percent}%`;
 
-            const durationMinutes = Math.floor(audio.duration / 60);
-            const durationSeconds = Math.floor(audio.duration % 60);
-            durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
-        }
-    });
+                const currentMinutes = Math.floor(audio.currentTime / 60);
+                const currentSeconds = Math.floor(audio.currentTime % 60);
+                currentTimeEl.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
 
-    progressBar.addEventListener('click', (e) => {
-        const width = progressBar.clientWidth;
-        const clickX = e.offsetX;
-        if (audio.duration) {
-            audio.currentTime = (clickX / width) * audio.duration;
-        }
+                const durationMinutes = Math.floor(audio.duration / 60);
+                const durationSeconds = Math.floor(audio.duration % 60);
+                durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+            }
+        });
+
+        progressBar.addEventListener('click', (e) => {
+            const width = progressBar.clientWidth;
+            const clickX = e.offsetX;
+            if (audio.duration) {
+                audio.currentTime = (clickX / width) * audio.duration;
+            }
+        });
     });
 </script>
-    
 
 </body></html>
