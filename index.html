@@ -828,6 +828,34 @@ Contáctame:
 }
 </style>
 
+<!-- REPRODUCTOR APUNTANDO A CANCION.MP3 -->
+<audio id="audio-file" src="cancion.mp3" loop preload="auto"></audio>
+
+<div class="music-player">
+    <button class="play-pause-btn" id="play-btn">▶</button>
+    <div class="progress-container">
+        <div class="song-info">Flores Amarillas 🌻</div>
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="time-display">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+</div>
+
+<style>
+.music-player {
+    position: fixed !important;
+    bottom: 25px !important;
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 99999 !important;
+}
+</style>
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const audio = document.getElementById('audio-file');
@@ -837,19 +865,23 @@ Contáctame:
         const currentTimeEl = document.getElementById('current-time');
         const durationEl = document.getElementById('duration');
 
-        if (!audio || !playBtn) return;
-
         playBtn.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play().then(() => {
                     playBtn.textContent = '❚❚';
-                }).catch(error => {
-                    console.error("Error al reproducir audio:", error);
+                }).catch(err => {
+                    console.error("No se pudo reproducir el archivo cancion.mp3:", err);
                 });
             } else {
                 audio.pause();
                 playBtn.textContent = '▶';
             }
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60);
+            durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
         });
 
         audio.addEventListener('timeupdate', () => {
@@ -860,10 +892,6 @@ Contáctame:
                 const currentMinutes = Math.floor(audio.currentTime / 60);
                 const currentSeconds = Math.floor(audio.currentTime % 60);
                 currentTimeEl.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
-
-                const durationMinutes = Math.floor(audio.duration / 60);
-                const durationSeconds = Math.floor(audio.duration % 60);
-                durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
             }
         });
 
