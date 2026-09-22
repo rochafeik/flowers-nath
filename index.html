@@ -856,6 +856,34 @@ Contáctame:
 }
 </style>
 
+<!-- REPRODUCTOR APUNTANDO A CANCION.MP3 -->
+<audio id="audio-file" src="cancion.mp3" loop preload="auto"></audio>
+
+<div class="music-player">
+    <button class="play-pause-btn" id="play-btn">▶</button>
+    <div class="progress-container">
+        <div class="song-info">Flores Amarillas 🌻</div>
+        <div class="progress-bar" id="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div class="time-display">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+</div>
+
+<style>
+.music-player {
+    position: fixed !important;
+    bottom: 25px !important;
+    top: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 99999 !important;
+}
+</style>
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const audio = document.getElementById('audio-file');
@@ -904,5 +932,4 @@ Contáctame:
         });
     });
 </script>
-
 </body></html>
