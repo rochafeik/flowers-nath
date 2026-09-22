@@ -780,257 +780,173 @@ Contáctame:
 
 -->
 
-<audio id="audio-file" src="musica.mp3" loop></audio>
+<!-- REPRODUCTOR ÚNICO DE AUDIO -->
+    <audio id="audio-file" src="cancion.mp3" loop preload="auto"></audio>
 
-<div class="music-player">
-    <button class="play-pause-btn" id="play-btn">▶</button>
-    <div class="progress-container">
-        <div class="song-info">Flores Amarillas 🌻</div>
-        <div class="progress-bar" id="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="time-display">
-            <span id="current-time">0:00</span>
-            <span id="duration">0:00</span>
-        </div>
-    </div>
-</div>
-
-<!-- REPRODUCTOR EN LA PARTE INFERIOR Y SCRIPT CORREGIDO -->
-<audio id="audio-file" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-    <source src="musica.ogg" type="audio/ogg">
-</audio>
-
-<div class="music-player">
-    <button class="play-pause-btn" id="play-btn">▶</button>
-    <div class="progress-container">
-        <div class="song-info">Flores Amarillas 🌻</div>
-        <div class="progress-bar" id="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="time-display">
-            <span id="current-time">0:00</span>
-            <span id="duration">0:00</span>
+    <div class="music-player">
+        <button class="play-pause-btn" id="play-btn" type="button">▶</button>
+        <div class="progress-container">
+            <div class="song-info">Flores Amarillas 🌻</div>
+            <div class="progress-bar" id="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="time-display">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
         </div>
     </div>
-</div>
 
-<style>
-/* Posiciona el reproductor abajo y encima de las flores */
-.music-player {
-    position: fixed !important;
-    bottom: 25px !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 99999 !important;
-}
-</style>
-
-<!-- REPRODUCTOR APUNTANDO A CANCION.MP3 -->
-<audio id="audio-file" src="cancion.mp3" loop preload="auto"></audio>
-
-<div class="music-player">
-    <button class="play-pause-btn" id="play-btn">▶</button>
-    <div class="progress-container">
-        <div class="song-info">Flores Amarillas 🌻</div>
-        <div class="progress-bar" id="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="time-display">
-            <span id="current-time">0:00</span>
-            <span id="duration">0:00</span>
-        </div>
-    </div>
-</div>
-
-<style>
-.music-player {
-    position: fixed !important;
-    bottom: 25px !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 99999 !important;
-}
-</style>
-
-<!-- REPRODUCTOR APUNTANDO A CANCION.MP3 -->
-<audio id="audio-file" src="cancion.mp3" loop preload="auto"></audio>
-
-<div class="music-player">
-    <button class="play-pause-btn" id="play-btn">▶</button>
-    <div class="progress-container">
-        <div class="song-info">Flores Amarillas 🌻</div>
-        <div class="progress-bar" id="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="time-display">
-            <span id="current-time">0:00</span>
-            <span id="duration">0:00</span>
-        </div>
-    </div>
-</div>
-
-<style>
-.music-player {
-    position: fixed !important;
-    bottom: 25px !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 99999 !important;
-}
-</style>
-
-<!-- REPRODUCTOR DE AUDIO -->
-<audio id="audio-file" src="./cancion.mp3" preload="auto" loop></audio>
-
-<div class="music-player">
-    <button class="play-pause-btn" id="play-btn" type="button">▶</button>
-    <div class="progress-container">
-        <div class="song-info">Flores Amarillas 🌻</div>
-        <div class="progress-bar" id="progress-bar">
-            <div class="progress-fill" id="progress-fill"></div>
-        </div>
-        <div class="time-display">
-            <span id="current-time">0:00</span>
-            <span id="duration">0:00</span>
-        </div>
-    </div>
-</div>
-
-<style>
-.music-player {
-    position: fixed !important;
-    bottom: 20px !important;
-    top: auto !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    background: rgba(47, 27, 20, 0.92) !important;
-    padding: 10px 16px !important;
-    border-radius: 30px !important;
-    border: 1px solid rgba(255, 215, 0, 0.5) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    z-index: 999999 !important;
-    backdrop-filter: blur(10px) !important;
-    width: 290px !important;
-    max-width: 88vw !important;
-    touch-action: manipulation;
-}
-
-.play-pause-btn {
-    background: #ffd700 !important;
-    border: none !important;
-    border-radius: 50% !important;
-    width: 42px !important;
-    height: 42px !important;
-    min-width: 42px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    color: #2f1b14 !important;
-    font-size: 18px !important;
-    font-weight: bold !important;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.progress-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.song-info {
-    font-size: 12px;
-    color: #ffd700;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 6px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-}
-
-.progress-fill {
-    height: 100%;
-    background: #ffd700;
-    border-radius: 3px;
-    width: 0%;
-}
-
-.time-display {
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    color: rgba(255, 215, 0, 0.9);
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const audio = document.getElementById('audio-file');
-    const playBtn = document.getElementById('play-btn');
-    const progressBar = document.getElementById('progress-bar');
-    const progressFill = document.getElementById('progress-fill');
-    const currentTimeEl = document.getElementById('current-time');
-    const durationEl = document.getElementById('duration');
-
-    function toggleAudio() {
-        if (audio.paused) {
-            audio.play().then(() => {
-                playBtn.textContent = '❚❚';
-            }).catch(err => {
-                console.error("Error al reproducir:", err);
-            });
-        } else {
-            audio.pause();
-            playBtn.textContent = '▶';
-        }
+    <style>
+    .music-player {
+        position: fixed !important;
+        bottom: 20px !important;
+        top: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: rgba(47, 27, 20, 0.92) !important;
+        padding: 10px 16px !important;
+        border-radius: 30px !important;
+        border: 1px solid rgba(255, 215, 0, 0.5) !important;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        z-index: 999999 !important;
+        backdrop-filter: blur(10px) !important;
+        width: 290px !important;
+        max-width: 88vw !important;
     }
 
-    playBtn.addEventListener('click', toggleAudio);
+    .play-pause-btn {
+        background: #ffd700 !important;
+        border: none !important;
+        border-radius: 50% !important;
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        color: #2f1b14 !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+    }
 
-    audio.addEventListener('loadedmetadata', () => {
-        if (audio.duration) {
-            const durationMinutes = Math.floor(audio.duration / 60);
-            const durationSeconds = Math.floor(audio.duration % 60);
-            durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+    .progress-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .song-info {
+        font-size: 12px;
+        color: #ffd700;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 3px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: #ffd700;
+        border-radius: 3px;
+        width: 0%;
+    }
+
+    .time-display {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: rgba(255, 215, 0, 0.9);
+    }
+    </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById('audio-file');
+        const playBtn = document.getElementById('play-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const progressFill = document.getElementById('progress-fill');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+
+        let isPlaying = false;
+
+        function startPlayback() {
+            if (!isPlaying) {
+                audio.play().then(() => {
+                    playBtn.textContent = '❚❚';
+                    isPlaying = true;
+                    removeAutoListeners();
+                }).catch(() => {});
+            }
         }
-    });
 
-    audio.addEventListener('timeupdate', () => {
-        if (audio.duration) {
-            const percent = (audio.currentTime / audio.duration) * 100;
-            progressFill.style.width = `${percent}%`;
-
-            const currentMinutes = Math.floor(audio.currentTime / 60);
-            const currentSeconds = Math.floor(audio.currentTime % 60);
-            currentTimeEl.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+        function removeAutoListeners() {
+            document.removeEventListener('click', startPlayback);
+            document.removeEventListener('touchstart', startPlayback);
         }
-    });
 
-    progressBar.addEventListener('click', (e) => {
-        const width = progressBar.clientWidth;
-        const clickX = e.offsetX;
-        if (audio.duration) {
-            audio.currentTime = (clickX / width) * audio.duration;
-        }
+        // Iniciar audio en cualquier interacción inicial con la pantalla
+        document.addEventListener('click', startPlayback);
+        document.addEventListener('touchstart', startPlayback);
+
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (audio.paused) {
+                audio.play().then(() => {
+                    playBtn.textContent = '❚❚';
+                    isPlaying = true;
+                });
+            } else {
+                audio.pause();
+                playBtn.textContent = '▶';
+                isPlaying = false;
+            }
+        });
+
+        audio.addEventListener('loadedmetadata', () => {
+            if (audio.duration) {
+                const durationMinutes = Math.floor(audio.duration / 60);
+                const durationSeconds = Math.floor(audio.duration % 60);
+                durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+            }
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const percent = (audio.currentTime / audio.duration) * 100;
+                progressFill.style.width = `${percent}%`;
+
+                const currentMinutes = Math.floor(audio.currentTime / 60);
+                const currentSeconds = Math.floor(audio.currentTime % 60);
+                currentTimeEl.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
+            }
+        });
+
+        progressBar.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const width = progressBar.clientWidth;
+            const clickX = e.offsetX;
+            if (audio.duration) {
+                audio.currentTime = (clickX / width) * audio.duration;
+            }
+        });
     });
-});
-</script>
-</body></html>
+    </script>
+</body>
+</html>
+
